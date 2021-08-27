@@ -6,19 +6,29 @@
 
 char* C_lib_version() 
 {
-	return "1.0.0";
+	return "1.2.0";
 }
 
-double check_similarity(byte *b1, int start_index, byte *b2, int len)
+double check_similarity(byte *b1, int *index, byte *b2, int len, int diff)
 {
-	int count = 0;
-	for(int i = 0; i < len; i += 1)
+	*index = -1;
+	double max_ratio = -1.0;
+	for (int start_index = 0; start_index <= diff; start_index += 1) 
 	{
-		if(*(b1 + start_index + i) == *(b2 + i))
+		int count = 0;
+		for(int i = 0; i < len; i += 1)
 		{
-			count += 1;
+			if(*(b1 + start_index + i) == *(b2 + i))
+			{
+				count += 1;
+			}
+		}
+		double ratio = count * 100.0 / len;
+		if ( ratio > max_ratio )
+		{
+			max_ratio = ratio;
+			*index = start_index;
 		}
 	}
-	double ratio = count * 100.0 / len;
-    return ratio;
+    return max_ratio;
 }
