@@ -45,6 +45,8 @@ func main() {
 		f1 = f2
 		f2 = temp
 	}
+
+	fmt.Println("comparing ...\nPlease wait.\n")
 	ratio, index := simich.CheckSimilarity(f1, f2)
 	text := fmt.Sprintf("similarity: %v %% at index %v.", ratio, index)
 	fmt.Println(text)

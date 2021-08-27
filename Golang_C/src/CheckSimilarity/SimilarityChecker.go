@@ -13,7 +13,7 @@ import (
 )
 
 func Version() string {
-	return "1.0.0"
+	return "1.0.1"
 }
 
 func CheckSimilarity(f1 *os.File, f2 *os.File) (float64, int) {
