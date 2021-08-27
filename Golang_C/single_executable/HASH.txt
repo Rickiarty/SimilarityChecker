@@ -1,7 +1,9 @@
-hash values of ver. 1.0.1 using SHA-256: 
+hash values of ver. 1.0.1(Windows-special ver.) with SHA-256: 
+    Windows: 
+        35a303b82f4e999e487289f8bb5a38794737b80050fbfafe45f42f675855990e
+
+hash values of ver. 1.0.1 with SHA-256: 
     Debian: 
         6d425db0846c7a25899c796a94249aa2a7ae7989980977ee85b4205b73b07172
-    Windows: 
-        
     macOS: 
         e96612b9f377ab4be9c607e8996bb918bf3c153028d73e4a159c7681a3cb077d
