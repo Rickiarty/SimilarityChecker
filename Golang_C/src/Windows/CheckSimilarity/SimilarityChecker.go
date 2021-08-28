@@ -31,7 +31,7 @@ func CheckSimilarity(f1 *os.File, f2 *os.File) (float64, float64, int) {
 	length2 := len(b2)
 	maxCount := -1
 	for startIndex := 0; startIndex <= diff; startIndex += 1 {
-		count := 0
+		count = 0
 		for i := 0; i < length2; i += 1 {
 			if b1[startIndex+i] == b2[i] {
 				count += 1
@@ -43,8 +43,8 @@ func CheckSimilarity(f1 *os.File, f2 *os.File) (float64, float64, int) {
 		}
 	}
 
-	ratioToSmall := float64(count) * 100.0 / float64(length2)
-	ratioToLarge := float64(count) * 100.0 / float64(length1)
+	ratioToSmall := float64(maxCount) * 100.0 / float64(length2)
+	ratioToLarge := float64(maxCount) * 100.0 / float64(length1)
 	return ratioToSmall, ratioToLarge, int(index)
 }
 
