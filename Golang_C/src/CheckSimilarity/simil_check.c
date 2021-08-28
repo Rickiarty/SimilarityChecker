@@ -6,13 +6,13 @@
 
 char* C_lib_version() 
 {
-	return "1.2.0";
+	return "1.3.0";
 }
 
-double check_similarity(byte *b1, int *index, byte *b2, int len, int diff)
+int check_similarity(byte *b1, int *index, byte *b2, int len, int diff)
 {
 	*index = -1;
-	double max_ratio = -1.0;
+	double max_count = -1;
 	for (int start_index = 0; start_index <= diff; start_index += 1) 
 	{
 		int count = 0;
@@ -23,12 +23,16 @@ double check_similarity(byte *b1, int *index, byte *b2, int len, int diff)
 				count += 1;
 			}
 		}
-		double ratio = count * 100.0 / len;
-		if ( ratio > max_ratio )
+		if ( count > max_count )
 		{
-			max_ratio = ratio;
+			max_count = count;
 			*index = start_index;
 		}
 	}
-    return max_ratio;
+    return max_count;
+}
+
+char* C_lib_author() 
+{
+	return "Rei-chi Lin";
 }

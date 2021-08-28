@@ -41,13 +41,16 @@ func main() {
 	fi2, _ := f2.Stat()
 	if fi1.Size() < fi2.Size() {
 		// swap
-		temp := f1
+		tempF := f1
 		f1 = f2
-		f2 = temp
+		f2 = tempF
+		//tempFI := fi1
+		//fi1 = fi2
+		//fi2 = tempFI
 	}
 
 	fmt.Println("comparing ...\nThis process may take a few 'minutes'.\nPlease wait.\n")
-	ratio, index := simich.CheckSimilarity(f1, f2)
-	text := fmt.Sprintf("similarity: %v %% at index %v.", ratio, index)
+	ratioToSmall, ratioToLarge, index := simich.CheckSimilarity(f1, f2)
+	text := fmt.Sprintf("similarity:\n %v %% similar to the smaller one and\n %v %% similar to the larger one \n  at byte number %v in the larger one.\n", ratioToSmall, ratioToLarge, index+1)
 	fmt.Println(text)
 }

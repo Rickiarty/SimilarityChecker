@@ -5,4 +5,5 @@
  */
 
 char* C_lib_version(void);
-double check_similarity(byte*, int*, byte*, int, int);
+char* C_lib_author(void);
+int check_similarity(byte*, int*, byte*, int, int);
